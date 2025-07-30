@@ -7,7 +7,7 @@ from cryptography.fernet import Fernet
 
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QListWidget, QPushButton,
-    QHBoxLayout, QMessageBox, QInputDialog
+    QHBoxLayout, QMessageBox, QInputDialog, QMenuBar
 )
 from PyQt6.QtCore import Qt
 
@@ -68,6 +68,11 @@ class ConnectionManager(QWidget):
         self.add_button.clicked.connect(self.add_connection)
         self.edit_button.clicked.connect(self.edit_selected)
         self.remove_button.clicked.connect(self.remove_selected)
+        menu_bar = QMenuBar(self)
+        about_menu = menu_bar.addMenu("Help")
+        about_action = about_menu.addAction("About")
+        about_action.triggered.connect(self.show_about)
+        self.layout.setMenuBar(menu_bar)
 
         for btn in (self.connect_button, self.add_button, self.edit_button, self.remove_button):
             button_layout.addWidget(btn)
@@ -245,6 +250,14 @@ class ConnectionManager(QWidget):
         self.connections.pop(idx)
         self.save_connections()
         self.refresh_list()
+
+    def show_about(self):
+        QMessageBox.information(
+            self,
+            "About Connection Manager",
+            "MIT © 2025 Adele Rix\nThis project is free to use and modify."
+        )
+
 
 
 if __name__ == "__main__":
