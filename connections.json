@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Linux Server (SSH Key)",
+        "type": "ssh",
+        "address": "user@192.168.1.10",
+        "private_key": "/home/user/.ssh/id_rsa"
+    },
+    {
+        "name": "Web Server (SSH Password)",
+        "type": "ssh",
+        "address": "admin@203.0.113.5",
+        "password": "gAAAAABmZxWzLZg5ZC2bZzT0l7jxYv_aV9-h0n45i1tb3dDDvwJZtJ5qEm7LM1Ik8PHzc3YpzFZgr60Et34AB123xyz"
+    },
+    {
+        "name": "Remote Workstation (RDP)",
+        "type": "rdp",
+        "address": "rdp.example.com",
+        "username": "john.doe",
+        "password": "gAAAAABmZxX6b4hjPWmPaOuE8QkNOB123abcP4VnTyZm2hN_c0EtHXYZ890Ff"
+    },
+    {
+        "name": "Run VPN Script",
+        "type": "custom",
+        "command": "sh ~/scripts/start_vpn.sh"
+    }
+]
